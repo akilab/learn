@@ -3,7 +3,7 @@ const contents = [
     title: "Claude Agent SDK Hands-on",
     description: "Claude Agent SDK を使って、エージェントを構築するハンズオン教材です。",
     tags: ["Claude", "Agent", "API", "Advanced"],
-    status: "published",
+    status: "draft",
     icon: ">_",
     pageUrl: "https://akilab.github.io/claude-agent-sdk-hands-on/",
     repoUrl: "https://github.com/akilab/claude-agent-sdk-hands-on.git",
@@ -25,7 +25,7 @@ const contents = [
     title: "Claude Practice",
     description: "Claude 活用のプロンプトとワークフローを集めた練習用コンテンツです。",
     tags: ["Claude", "Beginner", "Prompt"],
-    status: "draft",
+    status: "published",
     icon: "AI",
     pageUrl: "https://akilab.github.io/claude-practice/",
     repoUrl: "https://github.com/akilab/claude-practice.git",
@@ -35,7 +35,7 @@ const contents = [
   {
     title: "Mac Terminal Practice",
     description: "Mac のターミナル操作を基礎から体験的に学べるハンズオン教材です。",
-    tags: ["Mac", "Terminal", "Beginner"],
+    tags: ["Mac", "Beginner"],
     status: "published",
     icon: "⌘",
     pageUrl: "https://akilab.github.io/mac-terminal-practice/",
@@ -46,9 +46,9 @@ const contents = [
   },
   {
     title: "Claude Code Lab Builder",
-    description: "Claude Code と組み合わせて、学習環境とラボ教材を構築するための制作ツールです。",
-    tags: ["Claude", "Tooling", "Advanced"],
-    status: "tooling",
+    description: "Claude Code と組み合わせて、学習環境とラボ教材を構築するためのSkillです。",
+    tags: ["Claude", "Skills", "Advanced"],
+    status: "skills",
     icon: "</>",
     repoUrl: "https://github.com/akilab/claude-code-lab-builder.git",
     date: "2025-04-26",
@@ -56,9 +56,9 @@ const contents = [
   },
   {
     title: "Git Essentials",
-    description: "Git の基本操作を練習するための補助教材です。公開準備中です。",
-    tags: ["Git", "Beginner", "Terminal"],
-    status: "paused",
+    description: "Git の基本操作を練習するための補助教材です。",
+    tags: ["Git", "Beginner"],
+    status: "published",
     icon: "git",
     repoUrl: "https://github.com/akilab/mac-git-practice-lab.git",
     date: "2025-04-20",
@@ -81,13 +81,13 @@ const statusLabels = {
   draft: "Draft",
   paused: "Paused",
   retired: "Retired",
-  tooling: "Tooling",
+  skills: "Skills",
   hidden: "Hidden"
 };
 
 const statusOrder = {
   published: 1,
-  tooling: 2,
+  skills: 2,
   draft: 3,
   paused: 4,
   retired: 5,
@@ -109,6 +109,8 @@ const themeButtons = [...document.querySelectorAll("[data-theme-option]")];
 const themeStylesheet = document.querySelector("#themeStylesheet");
 const tagCloud = document.querySelector("#tagCloud");
 const rankingList = document.querySelector("#rankingList");
+const backToTopButton = document.querySelector("#backToTop");
+const scrollTopButtons = [...document.querySelectorAll("[data-scroll-top]")];
 
 function visibleContents() {
   const query = state.query.trim().toLowerCase();
@@ -254,6 +256,23 @@ searchInput.addEventListener("input", (event) => {
 sortSelect.addEventListener("change", (event) => {
   state.sort = event.target.value;
   renderCards();
+});
+
+const scrollToPageTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
+if (backToTopButton) {
+  const toggleBackToTop = () => {
+    backToTopButton.classList.toggle("is-visible", window.scrollY > 520);
+  };
+
+  window.addEventListener("scroll", toggleBackToTop, { passive: true });
+  toggleBackToTop();
+}
+
+scrollTopButtons.forEach((button) => {
+  button.addEventListener("click", scrollToPageTop);
 });
 
 const savedTheme = localStorage.getItem("ai-start-up-theme");

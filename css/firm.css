@@ -208,6 +208,18 @@ body[data-theme="firm"] .hero-visual .code-window {
   background: #f1e7de;
 }
 
+.tag-guide {
+  border-color: var(--line);
+}
+
+.tag-guide dt {
+  color: var(--ink);
+}
+
+.tag-guide dd {
+  color: #756a62;
+}
+
 .pill-new,
 .status-published {
   color: #7a4d42;
@@ -229,7 +241,7 @@ body[data-theme="firm"] .hero-visual .code-window {
   background: #eee7df;
 }
 
-.status-tooling {
+.status-skills {
   color: #5c536c;
   background: #e7e1ef;
 }
@@ -237,6 +249,16 @@ body[data-theme="firm"] .hero-visual .code-window {
 .open-source-note {
   border-color: var(--line-strong);
   background: rgba(255, 250, 244, 0.92);
+}
+
+.back-to-top {
+  color: #fffaf4;
+  background: var(--ink);
+  box-shadow: 0 12px 24px rgba(62, 44, 35, 0.16);
+}
+
+.back-to-top:hover {
+  background: #4a3f38;
 }
 
 @media (max-width: 860px) {

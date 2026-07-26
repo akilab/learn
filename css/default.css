@@ -684,16 +684,18 @@ code {
 
 .content-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--card-gap);
   margin-top: 18px;
 }
 
 .course-card {
-  display: flex;
-  flex-direction: column;
-  min-height: 294px;
-  padding: 18px;
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr) auto;
+  grid-template-rows: auto 1fr auto auto;
+  column-gap: 16px;
+  min-height: 210px;
+  padding: 20px;
   background: var(--surface-raised);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -705,23 +707,35 @@ code {
 }
 
 .course-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
+  display: contents;
+}
+
+.course-top .course-icon {
+  grid-row: 1 / span 2;
+  grid-column: 1;
+}
+
+.course-top .status-badge {
+  grid-row: 1;
+  grid-column: 3;
+  align-self: start;
 }
 
 .course-card h3 {
-  margin: 14px 0 0;
+  grid-row: 1;
+  grid-column: 2;
+  margin: 0;
   color: var(--ink);
-  font-size: 1.08rem;
+  font-size: clamp(1.06rem, 1.25vw, 1.24rem);
   line-height: 1.35;
 }
 
 .course-card p {
+  grid-row: 2;
+  grid-column: 2 / 4;
   margin: 10px 0 0;
   color: var(--text);
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   font-weight: 600;
 }
 
@@ -740,17 +754,21 @@ code {
   background: #eef2f6;
 }
 
-.status-tooling {
+.status-skills {
   color: #3354bd;
   background: #e8eeff;
 }
 
 .tag-list {
+  grid-row: 3;
+  grid-column: 2 / 4;
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: flex-start;
   gap: 8px;
   padding: 0;
-  margin: 16px 0 18px;
+  margin: 16px 0 20px;
   list-style: none;
 }
 
@@ -768,6 +786,8 @@ code {
 }
 
 .course-actions {
+  grid-row: 4;
+  grid-column: 2 / 4;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -786,7 +806,8 @@ code {
 }
 
 .lesson-link {
-  flex: 1;
+  min-width: 92px;
+  padding: 0 16px;
   color: var(--brand-blue);
   background: #ffffff;
   border: 1px solid var(--brand-blue);
@@ -836,6 +857,36 @@ code {
 .tag-cloud span {
   color: #6c7b91;
   font-size: 0.72rem;
+}
+
+.tag-guide {
+  display: grid;
+  gap: 12px;
+  margin: 16px 0 0;
+}
+
+.tag-guide div {
+  display: grid;
+  grid-template-columns: 98px minmax(0, 1fr);
+  gap: 12px;
+}
+
+.tag-guide dt {
+  color: var(--ink);
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.tag-guide dd {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 650;
+  line-height: 1.6;
+}
+
+.status-guide dt {
+  min-width: 78px;
 }
 
 .ranking-list {
@@ -932,8 +983,55 @@ code {
   justify-content: center;
 }
 
-.site-footer a {
+.site-footer a,
+.footer-top-button {
   font-weight: 800;
+}
+
+.footer-top-button {
+  padding: 0;
+  color: inherit;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+}
+
+.footer-top-button:hover {
+  color: var(--brand-blue);
+}
+
+.back-to-top {
+  position: fixed;
+  right: clamp(16px, 3vw, 32px);
+  bottom: clamp(16px, 3vw, 32px);
+  z-index: 30;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 900;
+  cursor: pointer;
+  pointer-events: none;
+  background: var(--brand-blue);
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  border-radius: 999px;
+  box-shadow: 0 14px 30px rgba(0, 60, 110, 0.22);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.back-to-top.is-visible {
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--brand-blue-deep);
 }
 
 @media (max-width: 1240px) {
@@ -985,7 +1083,7 @@ code {
   }
 
   .content-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1037,7 +1135,7 @@ code {
   }
 
   .content-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 
   .site-footer {
@@ -1097,6 +1195,26 @@ code {
 
   .content-grid {
     grid-template-columns: 1fr;
+  }
+
+  .course-card {
+    grid-template-columns: 48px minmax(0, 1fr);
+  }
+
+  .course-top .status-badge {
+    grid-column: 2;
+    justify-self: end;
+  }
+
+  .course-card h3 {
+    grid-column: 1 / -1;
+    margin-top: 14px;
+  }
+
+  .course-card p,
+  .tag-list,
+  .course-actions {
+    grid-column: 1 / -1;
   }
 }
 

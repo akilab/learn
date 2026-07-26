@@ -15,7 +15,7 @@
   <body data-theme="friendly">
     <header class="site-header">
       <div class="header-inner">
-        <a class="brand" href="#top" aria-label="AI Start UP home">
+        <a class="brand" href="index.html" aria-label="AI Start UP home">
           <img src="img/logo-design.svg" alt="" class="brand-logo">
           <span>
             <strong>AI Start UP</strong>
@@ -55,7 +55,6 @@
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#library">学習コンテンツを見る</a>
-            <a class="button button-secondary" href="#about">はじめての方へ</a>
           </div>
         </div>
 
@@ -127,9 +126,8 @@ print(response.content[0].text)</code></pre>
               <button type="button" data-filter="Git">Git</button>
               <button type="button" data-filter="Beginner">Beginner</button>
               <button type="button" data-filter="Agent">Agent</button>
-              <button type="button" data-filter="Terminal">Terminal</button>
               <button type="button" data-filter="API">API</button>
-              <button type="button" data-filter="Tooling">Tooling</button>
+              <button type="button" data-filter="Skills">Skills</button>
             </div>
 
             <div class="content-grid" id="contentGrid" aria-live="polite"></div>
@@ -146,6 +144,78 @@ print(response.content[0].text)</code></pre>
             <div class="tag-cloud" id="tagCloud"></div>
           </article>
 
+          <article class="side-card">
+            <h2>タグの説明</h2>
+            <dl class="tag-guide" aria-label="タグの説明">
+              <div>
+                <dt>Claude</dt>
+                <dd>ClaudeやClaude Codeを使う教材。</dd>
+              </div>
+              <div>
+                <dt>Skills</dt>
+                <dd>AI用Skillや教材制作の仕組みに関するもの。</dd>
+              </div>
+              <div>
+                <dt>CLI</dt>
+                <dd>今後追加するコマンドラインツール用の分類。</dd>
+              </div>
+              <div>
+                <dt>AI</dt>
+                <dd>AgentsやAGENTS.mdなど、AI開発全般を扱う分類候補。</dd>
+              </div>
+              <div>
+                <dt>Beginner</dt>
+                <dd>初めて触る人でも進めやすい入門教材。</dd>
+              </div>
+              <div>
+                <dt>API</dt>
+                <dd>外部APIやアプリ連携を扱う教材。</dd>
+              </div>
+              <div>
+                <dt>SSE</dt>
+                <dd>Server-Sent Eventsなどリアルタイム通信の教材。</dd>
+              </div>
+              <div>
+                <dt>Mac</dt>
+                <dd>Mac操作や環境づくりを学ぶ教材。</dd>
+              </div>
+              <div>
+                <dt>Git</dt>
+                <dd>GitやGitHubを使った開発フローの教材。</dd>
+              </div>
+              <div>
+                <dt>GitHub Pages</dt>
+                <dd>GitHub Pagesで公開する静的サイト教材。</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="side-card">
+            <h2>状態の説明</h2>
+            <dl class="tag-guide status-guide" aria-label="状態の説明">
+              <div>
+                <dt>Published</dt>
+                <dd>利用可能な教材。GitHub Pagesがない補助教材も含みます。</dd>
+              </div>
+              <div>
+                <dt>Draft</dt>
+                <dd>作成中、または内容を調整している教材。</dd>
+              </div>
+              <div>
+                <dt>Paused</dt>
+                <dd>一時的に公開や更新を止めている教材。</dd>
+              </div>
+              <div>
+                <dt>Retired</dt>
+                <dd>公開終了、または旧版として記録だけ残す教材。</dd>
+              </div>
+              <div>
+                <dt>Skills</dt>
+                <dd>教材そのものではなく、Skillや教材制作に関するもの。</dd>
+              </div>
+            </dl>
+          </article>
+
           <article class="side-card open-source-note">
             <strong>すべての教材はオープンソースです</strong>
             <p>教材の改善や新しいアイデアの提案を、ぜひ GitHub でお待ちしています。</p>
@@ -159,11 +229,13 @@ print(response.content[0].text)</code></pre>
       <p>&copy; 2026 AI Start UP — Hands-on Library</p>
       <nav aria-label="Footer navigation">
         <a href="https://github.com/akilab" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://github.com/akilab/claude-agent-sdk-hands-on/discussions" target="_blank" rel="noreferrer">Discussions</a>
-        <a href="https://github.com/akilab/claude-agent-sdk-hands-on/discussions" target="_blank" rel="noreferrer">お問い合わせ</a>
-        <a href="#top">ページ上部へ</a>
+        <button class="footer-top-button" type="button" data-scroll-top>ページ上部へ</button>
       </nav>
       <p>Built with care and GitHub Pages</p>
     </footer>
+
+    <button class="back-to-top" id="backToTop" type="button" data-scroll-top aria-label="ページ上部へ戻る">
+      Top
+    </button>
   </body>
 </html>
