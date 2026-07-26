@@ -24,22 +24,6 @@
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, system-ui, sans-serif;
 }
 
-body[data-theme="firm"] {
-  color-scheme: light;
-  --paper: #f1f5f9;
-  --surface: #fbfdff;
-  --surface-raised: #ffffff;
-  --line: #cbd8e6;
-  --line-strong: #aebfd2;
-  --ink: #061529;
-  --text: #0c1f39;
-  --muted: #526174;
-  --brand-blue-soft: #e4f1fb;
-  --shadow: 0 10px 24px rgba(7, 24, 50, 0.07);
-  --shadow-soft: 0 4px 14px rgba(7, 24, 50, 0.06);
-  --card-gap: 14px;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -385,8 +369,8 @@ main,
   border-radius: var(--radius);
 }
 
-body[data-theme="friendly"] .hero-visual .code-window,
-body[data-theme="friendly"] .hero-visual .floating-card {
+body[data-theme="simple"] .hero-visual .code-window,
+body[data-theme="simple"] .hero-visual .floating-card {
   display: none;
 }
 
@@ -505,7 +489,6 @@ code {
 }
 
 .news-card,
-.feature-card,
 .library-panel,
 .side-card {
   background: var(--surface);
@@ -526,7 +509,6 @@ code {
 }
 
 .section-heading h2,
-.feature-card h2,
 .side-card h2 {
   margin: 0;
   color: var(--ink);
@@ -594,14 +576,6 @@ code {
   background: #efe9ff;
 }
 
-.feature-card {
-  display: flex;
-  flex-direction: column;
-  min-height: 164px;
-  padding: 24px 22px;
-}
-
-.feature-icon,
 .course-icon {
   display: inline-grid;
   place-items: center;
@@ -612,17 +586,6 @@ code {
   font-weight: 900;
   background: var(--brand-blue-soft);
   border-radius: var(--radius-small);
-}
-
-.feature-card h2 {
-  margin-top: 20px;
-}
-
-.feature-card p {
-  margin: 10px 0 0;
-  color: var(--muted);
-  font-size: 0.92rem;
-  font-weight: 600;
 }
 
 .library-layout {
@@ -887,43 +850,6 @@ code {
 
 .status-guide dt {
   min-width: 78px;
-}
-
-.ranking-list {
-  display: grid;
-  gap: 12px;
-  padding: 0;
-  margin: 18px 0 0;
-  list-style: none;
-  counter-reset: ranking;
-}
-
-.ranking-list li {
-  display: grid;
-  grid-template-columns: 28px minmax(0, 1fr) auto;
-  gap: 10px;
-  align-items: center;
-  counter-increment: ranking;
-  color: var(--ink);
-  font-size: 0.86rem;
-  font-weight: 900;
-}
-
-.ranking-list li::before {
-  display: grid;
-  place-items: center;
-  width: 24px;
-  height: 24px;
-  color: #506079;
-  content: counter(ranking);
-  background: #eef3f8;
-  border-radius: 50%;
-}
-
-.ranking-list .status-badge {
-  min-height: 22px;
-  padding-inline: 8px;
-  font-size: 0.68rem;
 }
 
 .open-source-note {

@@ -12,7 +12,7 @@
     <link id="themeStylesheet" rel="stylesheet" href="css/firm.css" disabled>
     <script src="js/script.js" defer></script>
   </head>
-  <body data-theme="friendly">
+  <body data-theme="simple">
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href="index.html" aria-label="AI Start UP home">
@@ -37,8 +37,8 @@
             GitHub
           </a>
           <div class="theme-switch" aria-label="表示モード">
-            <button type="button" data-theme-option="friendly" class="is-active">Simple</button>
-            <button type="button" data-theme-option="firm">Cute</button>
+            <button type="button" data-theme-option="simple" class="is-active">Simple</button>
+            <button type="button" data-theme-option="cute">Cute</button>
           </div>
         </div>
       </div>
@@ -92,11 +92,7 @@ print(response.content[0].text)</code></pre>
             <h2>更新情報</h2>
             <a href="#library">すべて見る</a>
           </div>
-          <ul class="news-list">
-            <li><time datetime="2026-07-26">2026.07.26</time><span class="pill pill-new">作成</span>Claude Agent SDK Hands-on を作成しました</li>
-            <li><time datetime="2026-07-26">2026.07.26</time><span class="pill pill-new">作成</span>Streamline SSE を作成しました</li>
-            <li><time datetime="2026-07-26">2026.07.26</time><span class="pill pill-new">作成</span>AI Start UP を作成しました</li>
-          </ul>
+          <ul class="news-list" id="updateList"></ul>
         </article>
       </section>
 
@@ -118,17 +114,7 @@ print(response.content[0].text)</code></pre>
               </label>
             </div>
 
-            <div class="filter-bar" aria-label="タグで絞り込み">
-              <button type="button" class="is-active" data-filter="all">すべて</button>
-              <button type="button" data-filter="Claude">Claude</button>
-              <button type="button" data-filter="SSE">SSE</button>
-              <button type="button" data-filter="Mac">Mac</button>
-              <button type="button" data-filter="Git">Git</button>
-              <button type="button" data-filter="Beginner">Beginner</button>
-              <button type="button" data-filter="Agent">Agent</button>
-              <button type="button" data-filter="API">API</button>
-              <button type="button" data-filter="Skills">Skills</button>
-            </div>
+            <div class="filter-bar" id="filterBar" aria-label="タグで絞り込み"></div>
 
             <div class="content-grid" id="contentGrid" aria-live="polite"></div>
             <p class="empty-state" id="emptyState" hidden>該当するコンテンツはまだありません。</p>
@@ -146,74 +132,12 @@ print(response.content[0].text)</code></pre>
 
           <article class="side-card">
             <h2>タグの説明</h2>
-            <dl class="tag-guide" aria-label="タグの説明">
-              <div>
-                <dt>Claude</dt>
-                <dd>ClaudeやClaude Codeを使う教材。</dd>
-              </div>
-              <div>
-                <dt>Skills</dt>
-                <dd>AI用Skillや教材制作の仕組みに関するもの。</dd>
-              </div>
-              <div>
-                <dt>CLI</dt>
-                <dd>今後追加するコマンドラインツール用の分類。</dd>
-              </div>
-              <div>
-                <dt>AI</dt>
-                <dd>AgentsやAGENTS.mdなど、AI開発全般を扱う分類候補。</dd>
-              </div>
-              <div>
-                <dt>Beginner</dt>
-                <dd>初めて触る人でも進めやすい入門教材。</dd>
-              </div>
-              <div>
-                <dt>API</dt>
-                <dd>外部APIやアプリ連携を扱う教材。</dd>
-              </div>
-              <div>
-                <dt>SSE</dt>
-                <dd>Server-Sent Eventsなどリアルタイム通信の教材。</dd>
-              </div>
-              <div>
-                <dt>Mac</dt>
-                <dd>Mac操作や環境づくりを学ぶ教材。</dd>
-              </div>
-              <div>
-                <dt>Git</dt>
-                <dd>GitやGitHubを使った開発フローの教材。</dd>
-              </div>
-              <div>
-                <dt>GitHub Pages</dt>
-                <dd>GitHub Pagesで公開する静的サイト教材。</dd>
-              </div>
-            </dl>
+            <dl class="tag-guide" id="tagGuide" aria-label="タグの説明"></dl>
           </article>
 
           <article class="side-card">
             <h2>状態の説明</h2>
-            <dl class="tag-guide status-guide" aria-label="状態の説明">
-              <div>
-                <dt>Published</dt>
-                <dd>利用可能な教材。GitHub Pagesがない補助教材も含みます。</dd>
-              </div>
-              <div>
-                <dt>Draft</dt>
-                <dd>作成中、または内容を調整している教材。</dd>
-              </div>
-              <div>
-                <dt>Paused</dt>
-                <dd>一時的に公開や更新を止めている教材。</dd>
-              </div>
-              <div>
-                <dt>Retired</dt>
-                <dd>公開終了、または旧版として記録だけ残す教材。</dd>
-              </div>
-              <div>
-                <dt>Skills</dt>
-                <dd>教材そのものではなく、Skillや教材制作に関するもの。</dd>
-              </div>
-            </dl>
+            <dl class="tag-guide status-guide" id="statusGuide" aria-label="状態の説明"></dl>
           </article>
 
           <article class="side-card open-source-note">

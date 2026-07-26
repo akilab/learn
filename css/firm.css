@@ -1,4 +1,4 @@
-body[data-theme="firm"] {
+body[data-theme="cute"] {
   --brand-blue: #2b2522;
   --brand-blue-deep: #1f1a17;
   --brand-blue-soft: #f6eee6;
@@ -158,7 +158,7 @@ code {
   display: none;
 }
 
-body[data-theme="firm"] .hero-visual .code-window {
+body[data-theme="cute"] .hero-visual .code-window {
   display: block;
 }
 

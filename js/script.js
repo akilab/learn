@@ -7,8 +7,7 @@ const contents = [
     icon: ">_",
     pageUrl: "https://akilab.github.io/claude-agent-sdk-hands-on/",
     repoUrl: "https://github.com/akilab/claude-agent-sdk-hands-on.git",
-    date: "2025-05-22",
-    score: 128
+    date: "2025-05-22"
   },
   {
     title: "Streamline SSE",
@@ -18,8 +17,7 @@ const contents = [
     icon: "~~~",
     pageUrl: "https://akilab.github.io/streamline-sse/",
     repoUrl: "https://github.com/akilab/streamline-sse.git",
-    date: "2025-05-18",
-    score: 96
+    date: "2025-05-18"
   },
   {
     title: "Claude Practice",
@@ -29,8 +27,7 @@ const contents = [
     icon: "AI",
     pageUrl: "https://akilab.github.io/claude-practice/",
     repoUrl: "https://github.com/akilab/claude-practice.git",
-    date: "2025-05-10",
-    score: 74
+    date: "2025-05-10"
   },
   {
     title: "Mac Terminal Practice",
@@ -41,8 +38,7 @@ const contents = [
     pageUrl: "https://akilab.github.io/mac-terminal-practice/",
     repoUrl: "https://github.com/akilab/mac-terminal-practice.git",
     relatedUrl: "https://github.com/akilab/mac-git-practice-lab.git",
-    date: "2025-05-08",
-    score: 88
+    date: "2025-05-08"
   },
   {
     title: "Claude Code Lab Builder",
@@ -51,8 +47,7 @@ const contents = [
     status: "skills",
     icon: "</>",
     repoUrl: "https://github.com/akilab/claude-code-lab-builder.git",
-    date: "2025-04-26",
-    score: 64
+    date: "2025-04-26"
   },
   {
     title: "Git Essentials",
@@ -61,8 +56,7 @@ const contents = [
     status: "published",
     icon: "git",
     repoUrl: "https://github.com/akilab/mac-git-practice-lab.git",
-    date: "2025-04-20",
-    score: 53
+    date: "2025-04-20"
   },
   {
     title: "Legacy GitHub Pages Guide",
@@ -71,28 +65,91 @@ const contents = [
     status: "retired",
     icon: "old",
     repoUrl: "https://github.com/akilab",
-    date: "2025-03-12",
-    score: 37
+    date: "2025-03-12"
   }
 ];
 
-const statusLabels = {
-  published: "Published",
-  draft: "Draft",
-  paused: "Paused",
-  retired: "Retired",
-  skills: "Skills",
-  hidden: "Hidden"
-};
+const updateItems = [
+  {
+    date: "2026-07-26",
+    label: "作成",
+    labelClass: "pill-new",
+    text: "Claude Agent SDK Hands-on を作成しました"
+  },
+  {
+    date: "2026-07-26",
+    label: "作成",
+    labelClass: "pill-new",
+    text: "Streamline SSE を作成しました"
+  },
+  {
+    date: "2026-07-26",
+    label: "作成",
+    labelClass: "pill-new",
+    text: "AI Start UP を作成しました"
+  }
+];
 
-const statusOrder = {
-  published: 1,
-  skills: 2,
-  draft: 3,
-  paused: 4,
-  retired: 5,
-  hidden: 6
-};
+const tagDefinitions = [
+  { name: "Claude", description: "ClaudeやClaude Codeを使う教材。", filter: true },
+  { name: "Skills", description: "AI用Skillや教材制作の仕組みに関するもの。", filter: true },
+  { name: "CLI", description: "今後追加するコマンドラインツール用の分類。" },
+  { name: "AI", description: "AgentsやAGENTS.mdなど、AI開発全般を扱う分類候補。" },
+  { name: "Beginner", description: "初めて触る人でも進めやすい入門教材。", filter: true },
+  { name: "Agent", description: "AIエージェントの設計や実装に関する教材。", filter: true },
+  { name: "API", description: "外部APIやアプリ連携を扱う教材。", filter: true },
+  { name: "SSE", description: "Server-Sent Eventsなどリアルタイム通信の教材。", filter: true },
+  { name: "Mac", description: "Mac操作や環境づくりを学ぶ教材。", filter: true },
+  { name: "Git", description: "GitやGitHubを使った開発フローの教材。", filter: true },
+  { name: "GitHub Pages", description: "GitHub Pagesで公開する静的サイト教材。" },
+  { name: "Advanced", description: "基礎を終えた後に取り組む発展的な教材。" },
+  { name: "JavaScript", description: "JavaScriptを使った実装を含む教材。" },
+  { name: "Prompt", description: "プロンプト設計や使い方の練習教材。" },
+  { name: "Deploy", description: "公開や配備の流れを扱う教材。" }
+];
+
+const statusDefinitions = [
+  {
+    key: "published",
+    label: "Published",
+    description: "利用可能な教材。GitHub Pagesがない補助教材も含みます。",
+    order: 1
+  },
+  {
+    key: "skills",
+    label: "Skills",
+    description: "教材そのものではなく、Skillや教材制作に関するもの。",
+    order: 2
+  },
+  {
+    key: "draft",
+    label: "Draft",
+    description: "作成中、または内容を調整している教材。",
+    order: 3
+  },
+  {
+    key: "paused",
+    label: "Paused",
+    description: "一時的に公開や更新を止めている教材。",
+    order: 4
+  },
+  {
+    key: "retired",
+    label: "Retired",
+    description: "公開終了、または旧版として記録だけ残す教材。",
+    order: 5
+  },
+  {
+    key: "hidden",
+    label: "Hidden",
+    description: "一時的にサイト上へ表示しない教材。",
+    order: 6,
+    private: true
+  }
+];
+
+const statusLabels = Object.fromEntries(statusDefinitions.map((status) => [status.key, status.label]));
+const statusOrder = Object.fromEntries(statusDefinitions.map((status) => [status.key, status.order]));
 
 const state = {
   filter: "all",
@@ -102,15 +159,25 @@ const state = {
 
 const grid = document.querySelector("#contentGrid");
 const emptyState = document.querySelector("#emptyState");
+const updateList = document.querySelector("#updateList");
 const searchInput = document.querySelector("#siteSearch");
 const sortSelect = document.querySelector("#sortSelect");
-const filterButtons = [...document.querySelectorAll("[data-filter]")];
+const filterBar = document.querySelector("#filterBar");
+const tagGuide = document.querySelector("#tagGuide");
+const statusGuide = document.querySelector("#statusGuide");
 const themeButtons = [...document.querySelectorAll("[data-theme-option]")];
 const themeStylesheet = document.querySelector("#themeStylesheet");
 const tagCloud = document.querySelector("#tagCloud");
-const rankingList = document.querySelector("#rankingList");
 const backToTopButton = document.querySelector("#backToTop");
 const scrollTopButtons = [...document.querySelectorAll("[data-scroll-top]")];
+let filterButtons = [];
+
+const THEME_STORAGE_KEY = "ai-start-up-theme";
+const DEFAULT_THEME = "simple";
+const themeAliases = {
+  friendly: "simple",
+  firm: "cute"
+};
 
 function visibleContents() {
   const query = state.query.trim().toLowerCase();
@@ -134,6 +201,50 @@ function renderCards() {
   const items = visibleContents();
   grid.innerHTML = items.map(renderCard).join("");
   emptyState.hidden = items.length > 0;
+}
+
+function renderUpdates() {
+  if (!updateList) return;
+
+  updateList.innerHTML = updateItems.map((item) => {
+    const date = new Date(item.date);
+    const formattedDate = `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, "0")}.${String(date.getDate()).padStart(2, "0")}`;
+
+    return `
+      <li>
+        <time datetime="${escapeHtml(item.date)}">${formattedDate}</time>
+        <span class="pill ${escapeHtml(item.labelClass)}">${escapeHtml(item.label)}</span>
+        ${escapeHtml(item.text)}
+      </li>
+    `;
+  }).join("");
+}
+
+function renderFilters() {
+  const filterTags = tagDefinitions.filter((tag) => tag.filter);
+  filterBar.innerHTML = [
+    `<button type="button" class="is-active" data-filter="all">すべて</button>`,
+    ...filterTags.map((tag) => `
+      <button type="button" data-filter="${escapeHtml(tag.name)}">${escapeHtml(tag.name)}</button>
+    `)
+  ].join("");
+
+  filterButtons = [...filterBar.querySelectorAll("[data-filter]")];
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => setFilter(button.dataset.filter));
+  });
+}
+
+function renderGuideList(element, items, options = {}) {
+  if (!element) return;
+  const visibleItems = options.includePrivate ? items : items.filter((item) => !item.private);
+
+  element.innerHTML = visibleItems.map((item) => `
+    <div>
+      <dt>${escapeHtml(item.label || item.name)}</dt>
+      <dd>${escapeHtml(item.description)}</dd>
+    </div>
+  `).join("");
 }
 
 function renderCard(item) {
@@ -190,22 +301,6 @@ function renderTagCloud() {
   });
 }
 
-function renderRanking() {
-  if (!rankingList) return;
-
-  rankingList.innerHTML = [...contents]
-    .filter((item) => item.status !== "hidden")
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 5)
-    .map((item) => `
-      <li>
-        <span>${escapeHtml(item.title)}</span>
-        <span class="status-badge status-${item.status}">${statusLabels[item.status]}</span>
-      </li>
-    `)
-    .join("");
-}
-
 function setFilter(filter) {
   state.filter = filter;
 
@@ -220,14 +315,21 @@ function setFilter(filter) {
   renderCards();
 }
 
+function normalizeTheme(theme) {
+  const normalizedTheme = themeAliases[theme] || theme;
+  return normalizedTheme === "cute" ? "cute" : DEFAULT_THEME;
+}
+
 function setTheme(theme) {
-  document.body.dataset.theme = theme;
+  const normalizedTheme = normalizeTheme(theme);
+
+  document.body.dataset.theme = normalizedTheme;
   if (themeStylesheet) {
-    themeStylesheet.disabled = theme !== "firm";
+    themeStylesheet.disabled = normalizedTheme !== "cute";
   }
-  localStorage.setItem("ai-start-up-theme", theme);
+  localStorage.setItem(THEME_STORAGE_KEY, normalizedTheme);
   themeButtons.forEach((button) => {
-    button.classList.toggle("is-active", button.dataset.themeOption === theme);
+    button.classList.toggle("is-active", button.dataset.themeOption === normalizedTheme);
   });
 }
 
@@ -239,10 +341,6 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 }
-
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => setFilter(button.dataset.filter));
-});
 
 themeButtons.forEach((button) => {
   button.addEventListener("click", () => setTheme(button.dataset.themeOption));
@@ -275,11 +373,11 @@ scrollTopButtons.forEach((button) => {
   button.addEventListener("click", scrollToPageTop);
 });
 
-const savedTheme = localStorage.getItem("ai-start-up-theme");
-if (savedTheme === "firm" || savedTheme === "friendly") {
-  setTheme(savedTheme);
-}
+setTheme(localStorage.getItem(THEME_STORAGE_KEY));
 
+renderUpdates();
+renderFilters();
+renderGuideList(tagGuide, tagDefinitions);
+renderGuideList(statusGuide, statusDefinitions);
 renderTagCloud();
-renderRanking();
 renderCards();
