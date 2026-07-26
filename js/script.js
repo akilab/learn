@@ -106,6 +106,7 @@ const searchInput = document.querySelector("#siteSearch");
 const sortSelect = document.querySelector("#sortSelect");
 const filterButtons = [...document.querySelectorAll("[data-filter]")];
 const themeButtons = [...document.querySelectorAll("[data-theme-option]")];
+const themeStylesheet = document.querySelector("#themeStylesheet");
 const tagCloud = document.querySelector("#tagCloud");
 const rankingList = document.querySelector("#rankingList");
 
@@ -136,7 +137,7 @@ function renderCards() {
 function renderCard(item) {
   const disabled = !item.pageUrl || item.status === "retired" || item.status === "paused";
   const muted = item.status === "retired" ? " is-muted" : "";
-  const lessonLabel = item.status === "tooling" ? "View Tool" : "Open Lesson";
+  const lessonLabel = "Open";
   const lessonLink = disabled
     ? `<span class="lesson-link is-disabled">${lessonLabel}</span>`
     : `<a class="lesson-link" href="${item.pageUrl}" target="_blank" rel="noreferrer">${lessonLabel}</a>`;
@@ -188,6 +189,8 @@ function renderTagCloud() {
 }
 
 function renderRanking() {
+  if (!rankingList) return;
+
   rankingList.innerHTML = [...contents]
     .filter((item) => item.status !== "hidden")
     .sort((a, b) => b.score - a.score)
@@ -217,6 +220,9 @@ function setFilter(filter) {
 
 function setTheme(theme) {
   document.body.dataset.theme = theme;
+  if (themeStylesheet) {
+    themeStylesheet.disabled = theme !== "firm";
+  }
   localStorage.setItem("ai-start-up-theme", theme);
   themeButtons.forEach((button) => {
     button.classList.toggle("is-active", button.dataset.themeOption === theme);

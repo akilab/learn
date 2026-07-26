@@ -9,37 +9,37 @@
       content="AIツールや開発スキルをハンズオンで学ぶための学習コンテンツライブラリ。"
     >
     <link rel="stylesheet" href="css/default.css">
+    <link id="themeStylesheet" rel="stylesheet" href="css/firm.css" disabled>
     <script src="js/script.js" defer></script>
   </head>
   <body data-theme="friendly">
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="AI Start UP home">
-        <img src="img/logo-design.svg" alt="" class="brand-logo">
-        <span>
-          <strong>AI Start UP</strong>
-          <small>Hands-on Library</small>
-        </span>
-      </a>
-
-      <nav class="site-nav" aria-label="Main navigation">
-        <a class="is-active" href="#library">Library</a>
-        <a href="#about">About</a>
-        <a href="#guide">Guide</a>
-        <a href="#changelog">Changelog</a>
-        <a href="#roadmap">Roadmap</a>
-      </nav>
-
-      <div class="header-actions">
-        <label class="search-box">
-          <span class="visually-hidden">キーワードで検索</span>
-          <input id="siteSearch" type="search" placeholder="キーワードで検索" autocomplete="off">
-        </label>
-        <a class="github-link" href="https://github.com/akilab" target="_blank" rel="noreferrer">
-          GitHub
+      <div class="header-inner">
+        <a class="brand" href="#top" aria-label="AI Start UP home">
+          <img src="img/logo-design.svg" alt="" class="brand-logo">
+          <span>
+            <strong>AI Start UP</strong>
+            <small>Hands-on Library</small>
+          </span>
         </a>
-        <div class="theme-switch" aria-label="表示モード">
-          <button type="button" data-theme-option="firm">Firm</button>
-          <button type="button" data-theme-option="friendly" class="is-active">Friendly</button>
+
+        <nav class="site-nav" aria-label="Main navigation">
+          <a class="is-active" href="#library">Library</a>
+          <a href="#about">About</a>
+        </nav>
+
+        <div class="header-actions">
+          <label class="search-box">
+            <span class="visually-hidden">キーワードで検索</span>
+            <input id="siteSearch" type="search" placeholder="キーワードで検索" autocomplete="off">
+          </label>
+          <a class="github-link" href="https://github.com/akilab" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+          <div class="theme-switch" aria-label="表示モード">
+            <button type="button" data-theme-option="friendly" class="is-active">Simple</button>
+            <button type="button" data-theme-option="firm">Cute</button>
+          </div>
         </div>
       </div>
     </header>
@@ -48,18 +48,19 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <p class="eyebrow">Learning catalog for hands-on builders</p>
-          <h1 id="hero-title">さあ、学びを始めよう。<br>AIで、もっと速く、もっとスマートに。</h1>
+          <h1 id="hero-title">AIと開発を、手を動かしながら学ぶ。</h1>
           <p>
             AIツールや開発スキルを、ハンズオンで実践的に学べる学習ライブラリです。
             小さく試して、手を動かしながら、確かな力に。
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#library">学習コンテンツを見る</a>
-            <a class="button button-secondary" href="#guide">はじめての方へ</a>
+            <a class="button button-secondary" href="#about">はじめての方へ</a>
           </div>
         </div>
 
         <div class="hero-visual" aria-label="ヒーロー画像の仮エリア">
+          <img class="hero-art-image" src="img/hero-img.png" alt="">
           <div class="code-window">
             <div class="window-bar">
               <span></span><span></span><span></span>
@@ -87,37 +88,16 @@ print(response.content[0].text)</code></pre>
       </section>
 
       <section class="info-grid" aria-label="Library overview">
-        <article class="news-card" id="changelog">
+        <article class="news-card" id="about">
           <div class="section-heading">
-            <h2>新着情報</h2>
+            <h2>更新情報</h2>
             <a href="#library">すべて見る</a>
           </div>
           <ul class="news-list">
-            <li><time datetime="2025-05-22">2025.05.22</time><span class="pill pill-new">新着</span>Claude Agent SDK Hands-on を公開しました</li>
-            <li><time datetime="2025-05-18">2025.05.18</time><span class="pill pill-update">更新</span>Streamline SSE にサンプルコードを追加しました</li>
-            <li><time datetime="2025-05-12">2025.05.12</time><span class="pill pill-note">お知らせ</span>GitHub Discussions を活用した質問・相談を始めました</li>
+            <li><time datetime="2026-07-26">2026.07.26</time><span class="pill pill-new">作成</span>Claude Agent SDK Hands-on を作成しました</li>
+            <li><time datetime="2026-07-26">2026.07.26</time><span class="pill pill-new">作成</span>Streamline SSE を作成しました</li>
+            <li><time datetime="2026-07-26">2026.07.26</time><span class="pill pill-new">作成</span>AI Start UP を作成しました</li>
           </ul>
-        </article>
-
-        <article class="feature-card" id="about">
-          <span class="feature-icon">Book</span>
-          <h2>ハンズオン中心</h2>
-          <p>すぐに手を動かせる実践的な教材を厳選。</p>
-        </article>
-        <article class="feature-card" id="guide">
-          <span class="feature-icon">Rise</span>
-          <h2>ステップアップ設計</h2>
-          <p>初級から応用まで無理なくレベルアップ。</p>
-        </article>
-        <article class="feature-card">
-          <span class="feature-icon">Code</span>
-          <h2>最新ツールに対応</h2>
-          <p>Claude / SSE / Git / Mac などを継続的に追加。</p>
-        </article>
-        <article class="feature-card">
-          <span class="feature-icon">Share</span>
-          <h2>コミュニティ駆動</h2>
-          <p>学び、共有し、成長できる場を目指して。</p>
         </article>
       </section>
 
@@ -166,11 +146,6 @@ print(response.content[0].text)</code></pre>
             <div class="tag-cloud" id="tagCloud"></div>
           </article>
 
-          <article class="side-card">
-            <h2>人気のコンテンツ</h2>
-            <ol class="ranking-list" id="rankingList"></ol>
-          </article>
-
           <article class="side-card open-source-note">
             <strong>すべての教材はオープンソースです</strong>
             <p>教材の改善や新しいアイデアの提案を、ぜひ GitHub でお待ちしています。</p>
@@ -180,7 +155,7 @@ print(response.content[0].text)</code></pre>
       </section>
     </main>
 
-    <footer class="site-footer" id="roadmap">
+    <footer class="site-footer" id="footer">
       <p>&copy; 2026 AI Start UP — Hands-on Library</p>
       <nav aria-label="Footer navigation">
         <a href="https://github.com/akilab" target="_blank" rel="noreferrer">GitHub</a>
