@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Start UP | Hands-on Library</title>
+    <meta
+      name="description"
+      content="AIツールや開発スキルをハンズオンで学ぶための学習コンテンツライブラリ。"
+    >
+    <link rel="stylesheet" href="css/default.css">
+    <script src="js/script.js" defer></script>
+  </head>
+  <body data-theme="friendly">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="AI Start UP home">
+        <img src="img/logo-design.svg" alt="" class="brand-logo">
+        <span>
+          <strong>AI Start UP</strong>
+          <small>Hands-on Library</small>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="is-active" href="#library">Library</a>
+        <a href="#about">About</a>
+        <a href="#guide">Guide</a>
+        <a href="#changelog">Changelog</a>
+        <a href="#roadmap">Roadmap</a>
+      </nav>
+
+      <div class="header-actions">
+        <label class="search-box">
+          <span class="visually-hidden">キーワードで検索</span>
+          <input id="siteSearch" type="search" placeholder="キーワードで検索" autocomplete="off">
+        </label>
+        <a class="github-link" href="https://github.com/akilab" target="_blank" rel="noreferrer">
+          GitHub
+        </a>
+        <div class="theme-switch" aria-label="表示モード">
+          <button type="button" data-theme-option="firm">Firm</button>
+          <button type="button" data-theme-option="friendly" class="is-active">Friendly</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Learning catalog for hands-on builders</p>
+          <h1 id="hero-title">さあ、学びを始めよう。<br>AIで、もっと速く、もっとスマートに。</h1>
+          <p>
+            AIツールや開発スキルを、ハンズオンで実践的に学べる学習ライブラリです。
+            小さく試して、手を動かしながら、確かな力に。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#library">学習コンテンツを見る</a>
+            <a class="button button-secondary" href="#guide">はじめての方へ</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="ヒーロー画像の仮エリア">
+          <div class="code-window">
+            <div class="window-bar">
+              <span></span><span></span><span></span>
+              <strong>app.py</strong>
+            </div>
+            <pre><code>from claude_sdk import Client
+
+client = Client()
+
+response = client.messages.create(
+    model="claude-3-5-sonnet",
+    messages=[{"role": "user", "content": "Hello AI!"}]
+)
+
+print(response.content[0].text)</code></pre>
+          </div>
+          <div class="floating-card terminal-card">&gt;_</div>
+          <div class="floating-card chart-card">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="floating-card checklist-card">
+            <i></i><i></i><i></i>
+          </div>
+        </div>
+      </section>
+
+      <section class="info-grid" aria-label="Library overview">
+        <article class="news-card" id="changelog">
+          <div class="section-heading">
+            <h2>新着情報</h2>
+            <a href="#library">すべて見る</a>
+          </div>
+          <ul class="news-list">
+            <li><time datetime="2025-05-22">2025.05.22</time><span class="pill pill-new">新着</span>Claude Agent SDK Hands-on を公開しました</li>
+            <li><time datetime="2025-05-18">2025.05.18</time><span class="pill pill-update">更新</span>Streamline SSE にサンプルコードを追加しました</li>
+            <li><time datetime="2025-05-12">2025.05.12</time><span class="pill pill-note">お知らせ</span>GitHub Discussions を活用した質問・相談を始めました</li>
+          </ul>
+        </article>
+
+        <article class="feature-card" id="about">
+          <span class="feature-icon">Book</span>
+          <h2>ハンズオン中心</h2>
+          <p>すぐに手を動かせる実践的な教材を厳選。</p>
+        </article>
+        <article class="feature-card" id="guide">
+          <span class="feature-icon">Rise</span>
+          <h2>ステップアップ設計</h2>
+          <p>初級から応用まで無理なくレベルアップ。</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-icon">Code</span>
+          <h2>最新ツールに対応</h2>
+          <p>Claude / SSE / Git / Mac などを継続的に追加。</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-icon">Share</span>
+          <h2>コミュニティ駆動</h2>
+          <p>学び、共有し、成長できる場を目指して。</p>
+        </article>
+      </section>
+
+      <section class="library-layout" id="library" aria-labelledby="library-title">
+        <div class="library-main">
+          <div class="library-panel">
+            <div class="section-heading library-heading">
+              <div>
+                <p class="eyebrow">Library</p>
+                <h2 id="library-title">学習コンテンツライブラリ</h2>
+              </div>
+              <label class="sort-control">
+                <span class="visually-hidden">並び順</span>
+                <select id="sortSelect">
+                  <option value="newest">新しい順</option>
+                  <option value="title">タイトル順</option>
+                  <option value="status">状態順</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="filter-bar" aria-label="タグで絞り込み">
+              <button type="button" class="is-active" data-filter="all">すべて</button>
+              <button type="button" data-filter="Claude">Claude</button>
+              <button type="button" data-filter="SSE">SSE</button>
+              <button type="button" data-filter="Mac">Mac</button>
+              <button type="button" data-filter="Git">Git</button>
+              <button type="button" data-filter="Beginner">Beginner</button>
+              <button type="button" data-filter="Agent">Agent</button>
+              <button type="button" data-filter="Terminal">Terminal</button>
+              <button type="button" data-filter="API">API</button>
+              <button type="button" data-filter="Tooling">Tooling</button>
+            </div>
+
+            <div class="content-grid" id="contentGrid" aria-live="polite"></div>
+            <p class="empty-state" id="emptyState" hidden>該当するコンテンツはまだありません。</p>
+          </div>
+        </div>
+
+        <aside class="library-sidebar" aria-label="Supplementary library information">
+          <article class="side-card">
+            <div class="section-heading">
+              <h2>タグから探す</h2>
+              <a href="#library">すべてのタグを見る</a>
+            </div>
+            <div class="tag-cloud" id="tagCloud"></div>
+          </article>
+
+          <article class="side-card">
+            <h2>人気のコンテンツ</h2>
+            <ol class="ranking-list" id="rankingList"></ol>
+          </article>
+
+          <article class="side-card open-source-note">
+            <strong>すべての教材はオープンソースです</strong>
+            <p>教材の改善や新しいアイデアの提案を、ぜひ GitHub でお待ちしています。</p>
+            <a href="https://github.com/akilab" target="_blank" rel="noreferrer">GitHub を見る</a>
+          </article>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="roadmap">
+      <p>&copy; 2026 AI Start UP — Hands-on Library</p>
+      <nav aria-label="Footer navigation">
+        <a href="https://github.com/akilab" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://github.com/akilab/claude-agent-sdk-hands-on/discussions" target="_blank" rel="noreferrer">Discussions</a>
+        <a href="https://github.com/akilab/claude-agent-sdk-hands-on/discussions" target="_blank" rel="noreferrer">お問い合わせ</a>
+        <a href="#top">ページ上部へ</a>
+      </nav>
+      <p>Built with care and GitHub Pages</p>
+    </footer>
+  </body>
+</html>
