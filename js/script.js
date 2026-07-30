@@ -1,5 +1,15 @@
 const contents = [
   {
+    title: "Learn Postgres",
+    description: "PostgreSQL と SQL の基本を、手を動かしながら学ぶハンズオン教材です。",
+    tags: ["PostgreSQL", "SQL", "Database", "Beginner"],
+    status: "published",
+    icon: "SQL",
+    pageUrl: "https://akilab.github.io/learn-postgres/",
+    repoUrl: "https://github.com/akilab/learn-postgres.git",
+    date: "2026-07-31"
+  },
+  {
     title: "Claude Agent SDK Hands-on",
     description: "Claude Agent SDK を使って、エージェントを構築するハンズオン教材です。",
     tags: ["Claude", "Agent", "API", "Advanced"],
@@ -71,6 +81,12 @@ const contents = [
 
 const updateItems = [
   {
+    date: "2026-07-31",
+    label: "追加",
+    labelClass: "pill-new",
+    text: "Learn Postgres を追加しました"
+  },
+  {
     date: "2026-07-26",
     label: "作成",
     labelClass: "pill-new",
@@ -99,6 +115,9 @@ const tagDefinitions = [
   { name: "Agent", description: "AIエージェントの設計や実装に関する教材。", filter: true },
   { name: "API", description: "外部APIやアプリ連携を扱う教材。", filter: true },
   { name: "SSE", description: "Server-Sent Eventsなどリアルタイム通信の教材。", filter: true },
+  { name: "PostgreSQL", description: "PostgreSQLを使ったデータベース学習教材。", filter: true },
+  { name: "SQL", description: "SQLでデータを操作・取得する学習教材。", filter: true },
+  { name: "Database", description: "データベース設計や操作を扱う教材。", filter: true },
   { name: "Mac", description: "Mac操作や環境づくりを学ぶ教材。", filter: true },
   { name: "Git", description: "GitやGitHubを使った開発フローの教材。", filter: true },
   { name: "GitHub Pages", description: "GitHub Pagesで公開する静的サイト教材。" },
