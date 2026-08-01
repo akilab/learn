@@ -1,5 +1,15 @@
 const contents = [
   {
+    title: "GitLab Learning",
+    description: "GitLab と CI/CD の基礎を、手を動かしながら学ぶ入門コースです。",
+    tags: ["GitLab", "CI/CD", "Beginner", "Deploy"],
+    status: "published",
+    icon: "CI",
+    pageUrl: "https://akilab.github.io/gitlab-learn/",
+    repoUrl: "https://github.com/akilab/gitlab-learn.git",
+    date: "2026-08-01"
+  },
+  {
     title: "Learn Postgres",
     description: "PostgreSQL と SQL の基本を、手を動かしながら学ぶハンズオン教材です。",
     tags: ["PostgreSQL", "SQL", "Database", "Beginner"],
@@ -81,6 +91,12 @@ const contents = [
 
 const updateItems = [
   {
+    date: "2026-08-01",
+    label: "追加",
+    labelClass: "pill-new",
+    text: "GitLab Learning を追加しました"
+  },
+  {
     date: "2026-07-31",
     label: "追加",
     labelClass: "pill-new",
@@ -120,6 +136,8 @@ const tagDefinitions = [
   { name: "Database", description: "データベース設計や操作を扱う教材。", filter: true },
   { name: "Mac", description: "Mac操作や環境づくりを学ぶ教材。", filter: true },
   { name: "Git", description: "GitやGitHubを使った開発フローの教材。", filter: true },
+  { name: "GitLab", description: "GitLabを使った開発フローやプロジェクト管理の教材。", filter: true },
+  { name: "CI/CD", description: "テストやデプロイを自動化する流れを学ぶ教材。", filter: true },
   { name: "GitHub Pages", description: "GitHub Pagesで公開する静的サイト教材。" },
   { name: "Advanced", description: "基礎を終えた後に取り組む発展的な教材。" },
   { name: "JavaScript", description: "JavaScriptを使った実装を含む教材。" },
