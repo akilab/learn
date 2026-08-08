@@ -1,5 +1,15 @@
 const contents = [
   {
+    title: "Learn SQLite",
+    description: "SQLite と SQL の基本を、手を動かしながら学ぶハンズオン教材です。",
+    tags: ["SQLite", "SQL", "Database", "Beginner"],
+    status: "published",
+    icon: "DB",
+    pageUrl: "https://akilab.github.io/learn-sqlite/",
+    repoUrl: "https://github.com/akilab/learn-sqlite.git",
+    date: "2026-08-08"
+  },
+  {
     title: "GitLab Learning",
     description: "GitLab と CI/CD の基礎を、手を動かしながら学ぶ入門コースです。",
     tags: ["GitLab", "CI/CD", "Beginner", "Deploy"],
@@ -91,6 +101,12 @@ const contents = [
 
 const updateItems = [
   {
+    date: "2026-08-08",
+    label: "追加",
+    labelClass: "pill-new",
+    text: "Learn SQLite を追加しました"
+  },
+  {
     date: "2026-08-01",
     label: "追加",
     labelClass: "pill-new",
@@ -132,6 +148,7 @@ const tagDefinitions = [
   { name: "API", description: "外部APIやアプリ連携を扱う教材。", filter: true },
   { name: "SSE", description: "Server-Sent Eventsなどリアルタイム通信の教材。", filter: true },
   { name: "PostgreSQL", description: "PostgreSQLを使ったデータベース学習教材。", filter: true },
+  { name: "SQLite", description: "SQLiteを使った軽量データベース学習教材。", filter: true },
   { name: "SQL", description: "SQLでデータを操作・取得する学習教材。", filter: true },
   { name: "Database", description: "データベース設計や操作を扱う教材。", filter: true },
   { name: "Mac", description: "Mac操作や環境づくりを学ぶ教材。", filter: true },
