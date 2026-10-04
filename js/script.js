@@ -1,5 +1,15 @@
 const contents = [
   {
+    title: "Learn Agents.md",
+    description: "AGENTS.md・CLAUDE.md・Skill の役割と使い方を学ぶサイトです。",
+    tags: ["AI", "Skills", "Beginner"],
+    status: "published",
+    icon: "AI",
+    pageUrl: "https://akilab.github.io/learn-agents-md/",
+    repoUrl: "https://github.com/akilab/learn-agents-md.git",
+    date: "2026-10-04"
+  },
+  {
     title: "Learn SQLite",
     description: "SQLite と SQL の基本を、手を動かしながら学ぶハンズオン教材です。",
     tags: ["SQLite", "SQL", "Database", "Beginner"],
@@ -100,6 +110,12 @@ const contents = [
 ];
 
 const updateItems = [
+  {
+    date: "2026-10-04",
+    label: "追加",
+    labelClass: "pill-new",
+    text: "Learn Agents.md を追加しました"
+  },
   {
     date: "2026-08-08",
     label: "追加",
